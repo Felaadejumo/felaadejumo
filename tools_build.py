@@ -2,7 +2,8 @@ import os
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">'
 def nav(cur):
     def a(h,t): return f'<a href="{h}"'+(' aria-current="page"' if cur==h else '')+f'>{t}</a>'
-    return f'<nav><div class="wrap"><a href="/" style="margin:0;color:#fff;display:flex;align-items:center;gap:10px"><img src="/assets/logo.png" alt="" width="36" height="36"><b>Fela Adejumo</b></a><div class="links">{a("/ai","AI")}{a("/books","Books")}{a("/felasweekly","Fela\'s Weekly")}{a("/about","About")}<a class="cta" href="/about#talk" style="color:#fff">Let\'s talk</a></div></div></nav>'
+    links = a("/ai","AI") + a("/books","Books") + a("/felasweekly","Fela's Weekly") + a("/about","About")
+    return '<nav><div class="wrap"><a href="/" style="margin:0;color:#fff;display:flex;align-items:center;gap:10px"><img src="/assets/logo.png" alt="" width="36" height="36"><b>Fela Adejumo</b></a><div class="links">' + links + '<a class="cta" href="/about#talk" style="color:#fff">Let\'s talk</a></div></div></nav>'
 FOOT='<footer><div class="wrap"><b>Fela Adejumo</b><p>Writer. Creator. Builder.</p><div class="l"><a href="/ai">AI</a><a href="/books">Books</a><a href="/felasweekly">Fela\'s Weekly</a><a href="/about">About</a></div><div class="l"><a href="https://felasbbq.com">Fela\'s BBQ</a><a href="https://untamablecollective.com">Untamable Collective</a></div><div class="l"><a href="https://instagram.com/felaadejumo" rel="noopener">Instagram</a><a href="https://x.com/felaadejumo" rel="noopener">X</a><a href="https://linkedin.com/in/richardadejumo" rel="noopener">LinkedIn</a><a href="mailto:hi@felaadejumo.com">hi@felaadejumo.com</a></div><p style="margin-top:20px">© <span id="yr">2026</span> Fela Adejumo</p></div></footer><script>document.getElementById("yr").textContent=new Date().getFullYear()</script>'
 def page(path,cur,title,desc,body):
     h=f'<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>{title}</title><meta name="description" content="{desc}"><meta property="og:title" content="{title}"><meta property="og:description" content="{desc}"><meta property="og:type" content="website">{FONTS}<link rel="icon" href="/assets/favicon.png"><link rel="stylesheet" href="/assets/site.css"></head><body>{nav(cur)}{body}{FOOT}</body></html>'
@@ -26,9 +27,7 @@ page('index.html','/','Fela Adejumo — Writer, Creator & Builder','The official
 <p class="mute">I'm interested in the intersection of culture, creativity, business and technology — and in turning interesting ideas into things people can actually experience, use or read.</p>
 <div class="row"><a class="btn" href="#paths">Explore my work</a><a class="btn ghost" href="/felasweekly">Read Fela's Weekly</a></div>
 </div><img class="shot" src="/assets/fela.jpg" alt="Portrait of Fela Adejumo" style="margin-inline:auto"></div></header>
-<section id="paths"><div class="wrap"><p class="mute">Welcome to my corner of the internet.</p><h2>Things I've written, built, started and couldn't stop thinking about.</h2>
-<p class="mute">Some became books. Some became businesses. Some became digital products. Some are still being figured out.</p>
-<div class="grid" style="margin-top:36px">
+<section id="paths"><div class="wrap"><div class="grid" style="margin-top:36px">
 <div class="path"><h3>AI</h3><p>Practical AI guides and experiments.</p><a href="/ai">Explore AI →</a></div>
 <div class="path"><h3>Books</h3><p>Music, creativity, productivity, culture and more.</p><a href="/books">Explore books →</a></div>
 <div class="path"><h3>Fela's Weekly</h3><p>Stories, observations, culture, business and ideas.</p><a href="/felasweekly">Read the Weekly →</a></div>
