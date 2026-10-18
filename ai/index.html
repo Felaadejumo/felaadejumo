@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The AI Content Creation Playbook — Practical AI Guide | Fela Adejumo</title>
+<meta name="description" content="The AI Content Creation Playbook is a 243-page practical guide to making cinematic AI video: how the models work, directing, consistency, editing, sound and a ready-to-copy prompt playbook.">
+<meta property="og:title" content="The AI Content Creation Playbook — Practical AI Guide">
+<meta property="og:description" content="Practical AI guides for people who actually want to DO things with AI.">
+<meta property="og:type" content="product">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#16161a;--char:#26262d;--paper:#faf8f5;--soft:#ece9e4;
+  --blue:#2f5bff;--violet:#7a3cff;--mag:#d6339a;
+  --bg-dark:#0d0d10;--fg-dark:#f4f2ee;--mute-dark:#a9a7b3;
+  --bg-light:#faf8f5;--fg-light:#16161a;--mute-light:#5b5963;--line-light:#d9d5ce;
+  --serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg-light:#17171c;--fg-light:#f1efea;--mute-light:#a6a4ae;--line-light:#34343c}}
+:root[data-theme="dark"]{--bg-light:#17171c;--fg-light:#f1efea;--mute-light:#a6a4ae;--line-light:#34343c}
+*,*::before,*::after{box-sizing:inherit}
+html{height:auto;scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg-dark);color:var(--fg-light);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section{padding:88px 0}
+.dark{background:var(--bg-dark);color:var(--fg-dark)}
+.light{background:var(--bg-light);color:var(--fg-light)}
+.dark .mute{color:var(--mute-dark)}.light .mute{color:var(--mute-light)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.02em;margin:0 0 .5em}
+h1{font-size:clamp(2.3rem,7vw,4.6rem);font-weight:800}
+h2{font-size:clamp(1.9rem,4.6vw,3.1rem)}
+h3{font-size:1.3rem;line-height:1.2}
+p{margin:0 0 1em;max-width:62ch}
+.lede{font-size:1.2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;border:0;background:linear-gradient(100deg,var(--blue),var(--violet));color:#fff;font:700 1rem var(--sans);text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.ghost{background:none;box-shadow:inset 0 0 0 1.5px currentColor}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+nav{position:sticky;top:0;z-index:10;background:rgba(13,13,16,.92);backdrop-filter:blur(8px);padding-top:env(safe-area-inset-top,0px);color:var(--fg-dark)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;min-height:60px}
+nav b{font-family:var(--serif);letter-spacing:.01em}
+nav a{text-decoration:none;font-size:.95rem;margin-left:20px;color:var(--mute-dark)}
+nav a:hover{color:#fff}
+@media(max-width:640px){nav .links a:not(.cta){display:none}}
+/* hero */
+.hero{padding:56px 0 96px;background:radial-gradient(900px 500px at 85% 10%,rgba(122,60,255,.28),transparent 60%),radial-gradient(600px 400px at 100% 60%,rgba(214,51,154,.16),transparent 60%),var(--bg-dark)}
+.hero .grid{display:grid;gap:48px;grid-template-columns:1.25fr .75fr;align-items:center}
+.do{color:#fff;background:linear-gradient(100deg,var(--blue),var(--mag));padding:0 .12em;border-radius:.08em;font-style:italic}
+.facts{list-style:none;padding:0;margin:28px 0 0;display:flex;gap:10px;flex-wrap:wrap}
+.facts li{border:1px solid #3a3a45;border-radius:999px;padding:6px 14px;font-size:.88rem;color:var(--mute-dark)}
+.cover{aspect-ratio:3/4;max-width:340px;margin-inline:auto;width:100%;border-radius:6px;background:linear-gradient(160deg,#1a1a22,#0a0a0d);box-shadow:0 30px 80px rgba(122,60,255,.4),0 0 0 1px #34343f;padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transform:rotate(2deg)}
+.cover::after{content:"";position:absolute;inset:auto -20% -15% -20%;height:42%;background:linear-gradient(90deg,var(--blue),var(--violet),var(--mag));filter:blur(40px);opacity:.7}
+.cover small{color:var(--mute-dark);font-size:.75rem;position:relative;z-index:1}
+.cover strong{font:800 2.2rem/1 var(--serif);position:relative;z-index:1}
+.cover span{font-size:.8rem;color:#fff;position:relative;z-index:1}
+/* problem */
+.pull{font:600 clamp(1.5rem,3.6vw,2.3rem)/1.2 var(--serif);border-left:4px solid var(--violet);padding-left:20px;margin:40px 0 0;max-width:24em}
+.cols{display:grid;gap:40px;grid-template-columns:1fr 1fr}
+.cols ul{list-style:none;padding:0;margin:0}
+.cols li{padding:14px 0;border-bottom:1px solid var(--line-light);font-family:var(--serif);font-size:1.15rem}
+.know li{color:var(--mute-light);text-decoration:line-through;text-decoration-color:var(--line-light)}
+.do-col h3{color:var(--violet)}
+/* create */
+.create{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#33333c;border:1px solid #33333c;margin-top:36px}
+.create div{background:var(--bg-dark);padding:28px 22px}
+.create p{margin:0;color:var(--mute-dark);font-size:.95rem}
+/* for you */
+.check{list-style:none;padding:0;margin:28px 0}
+.check li{padding:12px 0 12px 38px;position:relative;border-bottom:1px solid var(--line-light)}
+.check li::before{content:"";position:absolute;left:0;top:17px;width:20px;height:20px;border-radius:50%;background:var(--blue);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);box-shadow:inset 0 0 0 6px var(--bg-light)}
+/* toc */
+.toc{border-top:1px solid #3a3a45;margin-top:32px}
+.toc div{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:20px 0;border-bottom:1px solid #3a3a45}
+.toc b{font:600 1.5rem var(--serif);color:var(--violet)}
+.note{border:1px dashed var(--mag);border-radius:8px;padding:12px 16px;font-size:.9rem;color:var(--mag);margin-top:24px;max-width:62ch}
+/* workflow */
+.flow{display:flex;flex-wrap:wrap;gap:0;margin:36px 0 0}
+.flow span{flex:1 1 130px;padding:18px 10px;text-align:center;font:600 1.05rem var(--serif);border:1px solid var(--line-light);margin:0 -1px -1px 0}
+.flow span:nth-child(odd){background:var(--soft);color:var(--ink)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .flow span:nth-child(odd){background:#202027;color:var(--fg-light)}}
+/* quotes & offer */
+.slots{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);margin-top:28px}
+.slot{border:1px dashed #4a4a57;border-radius:8px;padding:22px;color:var(--mute-dark);font-size:.95rem}
+.slot b{display:block;color:#f2c14e;letter-spacing:.2em;margin-bottom:8px}
+.offer{background:linear-gradient(135deg,#17133a,#2a1250 55%,#3a123f);text-align:center}
+.offer p{margin-inline:auto}
+.price{font:800 3rem var(--serif);margin:12px 0}
+/* faq */
+details{border-bottom:1px solid var(--line-light);padding:18px 0}
+summary{font:600 1.15rem var(--serif);cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";color:var(--violet);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:12px 0 0;color:var(--mute-light)}
+/* more */
+.more{padding:56px 0}
+.shelf{display:flex;gap:14px;margin:20px 0}
+.shelf div{width:96px;aspect-ratio:2/3;border-radius:3px;background:var(--char);display:flex;align-items:end;padding:8px;font-size:.68rem;color:var(--mute-dark);line-height:1.2}
+footer{background:#08080a;color:var(--mute-dark);padding:48px 0 110px;font-size:.92rem}
+footer b{font:700 1.6rem var(--serif);color:#fff;display:block;margin-bottom:12px}
+footer a{margin-right:18px;text-decoration:none}
+footer .links{margin:6px 0}
+.sticky{display:none;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(13,13,16,.94);backdrop-filter:blur(8px)}
+.sticky .btn{width:100%}
+@media(max-width:760px){
+  section{padding:64px 0}
+  .hero .grid,.cols,.slots{grid-template-columns:1fr}
+  .create{grid-template-columns:1fr 1fr}
+  .cover{max-width:260px;order:-1}
+  .sticky{display:block}
+}
+@media(prefers-reduced-motion:no-preference){.cover{animation:rise .9s ease-out both}@keyframes rise{from{opacity:0;transform:translateY(24px) rotate(2deg)}}}
+.quote{border:1px solid #3a3a45;border-radius:8px;padding:26px}.quote .q{font:600 1.15rem/1.45 var(--serif);margin:0 0 14px}.quote small{display:block;color:var(--mute-dark);line-height:1.5}.quote b{display:block;margin-top:14px;font-size:.9rem}</style>
+</head>
+<body>
+<nav><div class="wrap"><a href="/" style="display:flex;align-items:center;gap:10px;margin:0;color:#fff"><img src="/assets/logo.png" alt="" width="36" height="36"><b>Fela Adejumo</b></a><div class="links"><a href="/ai">AI</a><a href="/books">Books</a><a href="/felasweekly">Fela's Weekly</a><a href="/about">About</a><a class="cta" href="#buy">Get the Playbook</a></div></div></nav>
+
+<header class="hero dark"><div class="wrap grid">
+  <div>
+    <h1>Practical AI guides for people who actually want to <span class="do">DO</span> things with AI.</h1>
+    <p class="lede mute"><strong style="color:#fff">The AI Content Creation Playbook</strong> is a practical guide to making cinematic AI video, from how the models behave to a full production pipeline, with ready-to-copy prompts.</p>
+    <div class="row"><a class="btn" href="#buy" data-checkout>Get the Playbook</a><a class="btn ghost" href="#inside">See what's inside ↓</a></div>
+    <ul class="facts"><li>Digital PDF</li><li>243 pages</li><li>Step-by-step</li><li>Instant access</li></ul>
+  </div>
+  <img class="shot" src="/assets/playbook-held.jpg" alt="The AI Content Creation Playbook cover held up against a grey wall" width="380" height="570" style="margin-inline:auto;transform:rotate(2deg)">
+</div></header>
+
+<section class="light"><div class="wrap">
+  <h2>AI isn't the problem.</h2>
+  <p class="lede">Knowing what to actually do with it is.</p>
+  <p class="mute">You've watched the tutorials. Saved the prompts. Downloaded the tools. You've seen the AI videos and images, and heard about agents and automation. And still, nothing you'd call finished.</p>
+  <p class="pull">You don't need another list of 100 AI tools. You need a workflow.</p>
+</div></section>
+
+<section class="dark"><div class="wrap">
+  <h2>There's a big difference between knowing AI exists and knowing how to use it.</h2>
+  <div class="cols" style="margin-top:36px;color:var(--fg-light)">
+    <div class="know"><h3 class="mute">Knowing</h3><ul style="--line-light:#3a3a45">
+      <li>"I know ChatGPT can write."</li><li>"I know AI can generate images."</li><li>"I know AI can make videos."</li><li>"I know there are hundreds of AI tools."</li></ul></div>
+    <div class="do-col"><h3>Doing</h3><ul style="--line-light:#3a3a45">
+      <li>"I used AI to make my content."</li><li>"I created the image."</li><li>"I built the workflow."</li><li>"I finished the project."</li></ul></div>
+  </div>
+  <p class="mute" style="margin-top:28px">The Playbook is built to close that gap.</p>
+</div></section>
+
+<section class="dark" style="padding-top:0"><div class="wrap">
+  <h2>So what's actually inside?</h2>
+  <div class="create">
+    <div><h3>Direct the model</h3><p>Prompt like a director: precision, not poetry.</p></div>
+    <div><h3>Keep it consistent</h3><p>Make ten clips feel like one film.</p></div>
+    <div><h3>Finish it properly</h3><p>Editing, sound design, colour and removing the AI look.</p></div>
+    <div><h3>Run it like a studio</h3><p>A production pipeline so quality repeats.</p></div>
+    <div><h3>Fix what breaks</h3><p>A troubleshooting encyclopedia: symptom, cause, fix.</p></div>
+    <div><h3>Copy ready prompts</h3><p>The AI Video Prompt Playbook: vlogs, interviews, documentaries, ASMR, thumbnails, music videos and more.</p></div>
+  </div>
+</div></section>
+
+<section class="light"><div class="wrap">
+  <h2>This book is for you if…</h2>
+  <ul class="check">
+    <li>You want to start using AI but don't know where to begin.</li>
+    <li>You already use ChatGPT but know you're barely scratching the surface.</li>
+    <li>You're a content creator, freelancer or marketer.</li>
+    <li>You're building a personal brand.</li>
+    <li>You have ideas but struggle to turn them into finished things.</li>
+    <li>You don't want AI theory. You want practical applications.</li>
+  </ul>
+  <p class="lede" style="font-family:var(--serif)">This isn't for people who want to become AI researchers. It's for people who want to make something.</p>
+</div></section>
+
+<section class="dark" id="inside"><div class="wrap">
+  <h2>Inside The AI Content Creation Playbook</h2>
+  <p class="mute">17 modules and the AI Video Prompt Playbook.</p>
+  <div class="toc">
+    <div><b>01</b><div><h3>How AI Video Really Works</h3><p class="mute" style="margin:0">Understand the machine, then control it. <span style="opacity:.6">p.5</span></p></div></div>
+    <div><b>02</b><div><h3>The Language of Cinema</h3><p class="mute" style="margin:0">Learn what directors know. <span style="opacity:.6">p.12</span></p></div></div>
+    <div><b>03</b><div><h3>Prompt Like a Director</h3><p class="mute" style="margin:0">Precision, not poetry. <span style="opacity:.6">p.20</span></p></div></div>
+    <div><b>04</b><div><h3>Consistency Systems</h3><p class="mute" style="margin:0">Make ten clips feel like one film. <span style="opacity:.6">p.29</span></p></div></div>
+    <div><b>05</b><div><h3>Motion Control</h3><p class="mute" style="margin:0">Make movement believable. <span style="opacity:.6">p.37</span></p></div></div>
+    <div><b>06</b><div><h3>People & Performance</h3><p class="mute" style="margin:0">Cross the uncanny valley. <span style="opacity:.6">p.44</span></p></div></div>
+    <div><b>07</b><div><h3>Story & Structure</h3><p class="mute" style="margin:0">What makes people stay. <span style="opacity:.6">p.50</span></p></div></div>
+    <div><b>08</b><div><h3>Shot Design & Sequences</h3><p class="mute" style="margin:0">Think in sequences, not single shots. <span style="opacity:.6">p.57</span></p></div></div>
+    <div><b>09</b><div><h3>Editing Mastery</h3><p class="mute" style="margin:0">Where the film is actually made. <span style="opacity:.6">p.64</span></p></div></div>
+    <div><b>10</b><div><h3>Sound Design</h3><p class="mute" style="margin:0">Half of what viewers feel. <span style="opacity:.6">p.71</span></p></div></div>
+    <div><b>11</b><div><h3>Color & Finishing</h3><p class="mute" style="margin:0">Remove the AI look. <span style="opacity:.6">p.77</span></p></div></div>
+    <div><b>12</b><div><h3>The Production Pipeline</h3><p class="mute" style="margin:0">Run it like a studio. <span style="opacity:.6">p.82</span></p></div></div>
+    <div><b>13</b><div><h3>Troubleshooting Encyclopedia</h3><p class="mute" style="margin:0">Symptom, cause, fix. <span style="opacity:.6">p.88</span></p></div></div>
+    <div><b>14</b><div><h3>Advanced Techniques</h3><p class="mute" style="margin:0">Level up your toolkit. <span style="opacity:.6">p.94</span></p></div></div>
+    <div><b>15</b><div><h3>Worked Productions</h3><p class="mute" style="margin:0">Three full builds, with the reasoning. <span style="opacity:.6">p.100</span></p></div></div>
+    <div><b>16</b><div><h3>Genre Playbooks</h3><p class="mute" style="margin:0">What each format demands. <span style="opacity:.6">p.109</span></p></div></div>
+    <div><b>17</b><div><h3>Ethics, Rights & Trust</h3><p class="mute" style="margin:0">Protect your work and your name. <span style="opacity:.6">p.114</span></p></div></div>
+    <div><b>+</b><div><h3>The AI Video Prompt Playbook</h3><p class="mute" style="margin:0">Ready-to-copy prompt systems for specific video formats and niches, plus a Free AI Tools list. <span style="opacity:.6">p.117</span></p></div></div>
+  </div>
+</div></section>
+
+<section class="light"><div class="wrap">
+  <h2>AI is most useful when you give it a job.</h2>
+  <p class="mute">Treat AI as a step in a process, not a magic button.</p>
+  <div class="flow"><span>Idea</span><span>Research</span><span>Create</span><span>Edit</span><span>Package</span><span>Publish</span><span>Improve</span></div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+  <h2>This isn't just something you read. It's something you use.</h2>
+  <p class="mute">Large type, built for your phone. Dark boxes are prompts to copy, with the parts you replace marked in yellow.</p>
+  <div class="phones"><img src="/assets/page-contents.jpg" alt="Contents page of the Playbook" loading="lazy"><img src="/assets/page-lesson.jpg" alt="A lesson page from module 01" loading="lazy"><img src="/assets/page-prompt.jpg" alt="A copy-ready vlog prompt template" loading="lazy"></div>
+  <img class="shot" src="/assets/playbook-desk.jpg" alt="The Playbook cover leaning against a wall on a wooden desk" loading="lazy" style="margin-inline:auto">
+</div></section>
+
+<section class="light"><div class="wrap">
+  <h2>I wasn't interested in making another book about how amazing AI is.</h2>
+  <p>I don't want you to finish this book knowing more AI terminology.</p>
+  <p class="lede" style="font-family:var(--serif)">I want you to finish it with something you've actually made.</p>
+  <div style="display:flex;gap:24px;align-items:center;margin-top:48px;flex-wrap:wrap"><img src="/assets/fela.jpg" alt="Portrait of Fela Adejumo" width="140" height="140" style="width:140px;height:140px;border-radius:50%;object-fit:cover;object-position:50% 25%"><div style="flex:1 1 280px"><h3>Meet Fela Adejumo</h3>
+  <p class="mute">Writer, creator and builder. Fela has written books, created content and creative projects, and experimented with AI along the way.</p></div></div>
+</div></section>
+
+
+<section class="dark"><div class="wrap">
+  <h2>Don’t just take my word for it.</h2>
+  <p class="mute">Notes from early readers of the Playbook.</p>
+  <div class="slots"><div class="quote"><p class="q">“I liked the practical approach: moving beyond just asking AI questions to actually using it to create things. I became more intentional about how I approach each project.”</p><small>Before: Wanted to create better images and videos with AI but wasn't sure how to go from an idea to producing something.</small><b>Early reader</b></div><div class="quote"><p class="q">“The different applications of AI helped me think beyond the basic things I was already using it for. I started looking at tasks I could simplify and building a more consistent process.”</p><small>Before: Wanted AI to help with business content and everyday tasks without getting overwhelmed by too many tools.</small><b>Early reader</b></div><div class="quote"><p class="q">“The ready-made prompts made using AI feel less intimidating. I became more confident experimenting, and broke ideas into smaller steps instead of feeling I had to understand everything first.”</p><small>Before: Kept hearing about what people were doing with AI but didn't know where to start or which tools were relevant.</small><b>Early reader</b></div></div>
+</div></section>
+
+<section class="offer dark" id="buy"><div class="wrap">
+  <h2>You don't need another AI course. You need a starting point.</h2>
+  <p class="lede mute">The AI Content Creation Playbook: 243-page PDF guide, one-time purchase, instant access.</p>
+  <div class="price">₦6,000 <span style="font-size:1.4rem;opacity:.7">/ $5</span></div>
+  <a class="btn" href="#" data-checkout>Get the Playbook</a>
+</div></section>
+
+<section class="light"><div class="wrap">
+  <h2>Questions</h2>
+  <details><summary>What exactly do I get?</summary><p>The AI Content Creation Playbook as a digital PDF: 17 modules on AI video plus the AI Video Prompt Playbook, with ready-to-copy prompts and a Free AI Tools list.</p></details>
+  <details><summary>Is this a physical book?</summary><p>No. It's a digital PDF.</p></details>
+  <details><summary>Can I read it on my phone?</summary><p>Yes. The PDF is laid out with large type so it reads well on a phone.</p></details>
+  <details><summary>Is it suitable for beginners?</summary><p>Yes, if you want to start using AI practically. It's written for people who want to make things, not for researchers.</p></details>
+  <details><summary>Do I need to be technical?</summary><p>[Confirm]</p></details>
+  <details><summary>Do I need ChatGPT or paid AI tools?</summary><p>The course teaches principles that work across video tools, and it ends with a Free AI Tools list. Features differ between tools and change fast. [Confirm which tools you recommend as free vs paid]</p></details>
+  <details><summary>Is it useful if I already use AI?</summary><p>Yes, if you want to go deeper on AI video: directing, consistency, editing and a full production pipeline.</p></details>
+  <details><summary>How do I receive it?</summary><p>You get instant access after checkout on Selar. [Confirm exactly how the file is delivered]</p></details>
+  <details><summary>Do I get future updates?</summary><p>[Confirm]</p></details>
+  <details><summary>Can I use it for content creation?</summary><p>Yes. It's built around creating AI video content, including formats like vlogs, documentaries and thumbnails.</p></details>
+</div></section>
+
+<section class="dark" style="text-align:center"><div class="wrap">
+  <h2>You already have ideas. Now start making them.</h2>
+  <p class="mute" style="margin-inline:auto">You don't need to know everything about AI. You don't need to master every tool. You just need to start.</p>
+  <a class="btn" href="#" data-checkout>Get the AI Content Creation Playbook</a>
+  <p class="mute" style="margin:20px auto 0;font-family:var(--serif)">For people who actually want to DO things with AI.</p>
+</div></section>
+
+<section class="light more"><div class="wrap">
+  <h3>From the author's shelf</h3>
+  <p class="mute">Fela has also written books on music, creativity, productivity, culture and more.</p>
+  <div class="shelf" style="flex-wrap:wrap;gap:10px"><a href="/books"><img src="/assets/books/anikulapos-afrobeat.png" alt="Aníkúlápò's Afrobeat book" width="110" style="width:110px;height:auto;display:block"></a><a href="/books"><img src="/assets/books/top-secrets-music-business.png" alt="The Top Secrets of the Music Business book" width="110" style="width:110px;height:auto;display:block"></a><a href="/books"><img src="/assets/books/productivity-hacks.png" alt="Productivity Hacks for the Virtual Worker book" width="110" style="width:110px;height:auto;display:block"></a><a href="/books"><img src="/assets/books/threads-of-time.png" alt="Threads of Time book" width="110" style="width:110px;height:auto;display:block"></a></div>
+  <a href="/books" style="font-weight:700">View all books →</a>
+  <p class="mute" style="margin-top:36px;font-size:.95rem">Fela's Weekly: stories, ideas, culture and interesting things from Fela's corner of the internet. <a href="/felasweekly" style="font-weight:700">Read it →</a></p>
+</div></section>
+
+<footer><div class="wrap">
+  <b>Fela Adejumo</b>
+  <div class="links"><a href="/ai">AI</a><a href="/books">Books</a><a href="/felasweekly">Fela's Weekly</a><a href="/about">About</a></div>
+  <div class="links"><a href="https://felasbbq.com">Fela's BBQ</a><a href="https://untamablecollective.com">Untamable Collective</a></div>
+  <div class="links"><a href="https://instagram.com/felaadejumo" rel="noopener">Instagram</a><a href="https://x.com/felaadejumo" rel="noopener">X</a><a href="https://linkedin.com/in/richardadejumo" rel="noopener">LinkedIn</a></div>
+  <p style="margin-top:24px">© <span id="yr">2026</span> Fela Adejumo</p>
+</div></footer>
+
+<div class="sticky"><a class="btn" href="#buy" data-checkout>Get the Playbook</a></div>
+<script>
+var CHECKOUT_URL="https://selar.com/4zm793695i";
+document.getElementById("yr").textContent=new Date().getFullYear();
+if(CHECKOUT_URL){document.querySelectorAll("[data-checkout]").forEach(function(a){a.href=CHECKOUT_URL})}
+</script>
+</body>
+</html>
