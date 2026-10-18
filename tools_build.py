@@ -22,7 +22,7 @@ def books(big=False,n=4):
 # HOME
 page('index.html','/','Fela Adejumo — Writer, Creator & Builder','The official home of Fela Adejumo — writer, creator and builder exploring culture, creativity, business, technology, books, digital products and more.',f'''
 <header class="hero dark"><div class="wrap grid2" style="grid-template-columns:1.25fr .75fr"><div><p class="tag">Writer. Creator. Builder.</p><h1>Fela Adejumo</h1>
-<p class="lede" style="font-family:var(--serif);max-width:24em">I make things — books, ideas, digital products, businesses and creative projects.</p>
+<p class="lede" style="font-family:var(--serif);max-width:24em">Executing Genius Ideas only</p>
 <p class="mute">I'm interested in the intersection of culture, creativity, business and technology — and in turning interesting ideas into things people can actually experience, use or read.</p>
 <div class="row"><a class="btn" href="#paths">Explore my work</a><a class="btn ghost" href="/felasweekly">Read Fela's Weekly</a></div>
 </div><img class="shot" src="/assets/fela.jpg" alt="Portrait of Fela Adejumo" style="margin-inline:auto"></div></header>
